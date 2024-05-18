@@ -1,0 +1,5 @@
+package com.admin.clinic.model;
+
+public class Administrator {
+
+}

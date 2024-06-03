@@ -11,23 +11,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/patients")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PatientController {
 
     @Autowired
-    private PatientService patientService;
-
-    // End point to create a new patient
-    @PostMapping("/create")
-    public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {
-        Patient createdPatient = patientService.createPatient(patient);
-        System.out.println("Patient created succesfully : "+createdPatient);
-        return new ResponseEntity<>(createdPatient, HttpStatus.CREATED);
-    }
-
-    // End point to update an existing patient
-    @PutMapping("/{id}")
-    public ResponseEntity<Patient> updatePatient(@PathVariable Long id, @RequestBody Patient patient) {
-        Patient updatedPatient = patientService.updatePatient(id, patient);
+	    private PatientService patientService;
+	
+	    // End point to create a new patient
+	    @PostMapping("/create")
+	    public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {
+	        Patient createdPatient = patientService.createPatient(patient);
+	        System.out.println("Patient created succesfully : "+createdPatient);
+	        return new ResponseEntity<>(createdPatient, HttpStatus.CREATED);
+	    }
+	
+	    // End point to update an existing patient
+	    @PutMapping("/{id}")
+	    public ResponseEntity<Patient> updatePatient(@PathVariable Long id, @RequestBody Patient patient) {
+	        Patient updatedPatient = patientService.updatePatient(id, patient);
         return ResponseEntity.ok(updatedPatient);
     }
 
@@ -50,7 +51,7 @@ public class PatientController {
     }
 
     // End point to retrieve all patients
-    @GetMapping("/	")
+    @GetMapping("/getPatients")
     public ResponseEntity<List<Patient>> getAllPatients() {
         List<Patient> patients = patientService.getAllPatients();
         return ResponseEntity.ok(patients);

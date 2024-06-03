@@ -107,6 +107,11 @@ public class MedicalRecord {
 		this.updatedAt = updatedAt;
 	}
 
+	public MedicalRecord() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
     
 }
 

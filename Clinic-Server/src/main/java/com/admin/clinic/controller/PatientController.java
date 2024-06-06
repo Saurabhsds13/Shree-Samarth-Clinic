@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.admin.clinic.dto.PatientResponseWrapper;
 import com.admin.clinic.model.Patient;
 import com.admin.clinic.service.PatientService;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/patients")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3005")
 public class PatientController {
 
     @Autowired
@@ -52,8 +53,8 @@ public class PatientController {
 
     // End point to retrieve all patients
     @GetMapping("/getPatients")
-    public ResponseEntity<List<Patient>> getAllPatients() {
+    public PatientResponseWrapper getAllPatients() {
         List<Patient> patients = patientService.getAllPatients();
-        return ResponseEntity.ok(patients);
+        return new PatientResponseWrapper(patients);
     }
 }

@@ -36,7 +36,7 @@ public class Patient {
 	private String address;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date createdAt;
+	private Date createdAt	;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedAt;
